@@ -1,0 +1,227 @@
+{
+    "command": "train",
+    "gpu_ids": [
+        0
+    ],
+    "path_output": "Train_MCS_all_DA_merge",
+    "model_name": "Model_SC_GM_7T",
+    "debugging": false,
+    "object_detection_params": {
+        "object_detection_path": null,
+        "safety_factor": [
+            1.0,
+            1.0,
+            1.0
+        ],
+        "gpu_ids": 0,
+        "path_output": "Train_MCS_all_DA_merge"
+    },
+    "loader_parameters": {
+        "path_data": [
+            "Data_BIDS_Template"
+        ],
+        "subject_selection": {
+            "n": [],
+            "metadata": [],
+            "value": []
+        },
+        "target_suffix": [
+            "_SC-manual",
+            "_GM-manual"
+        ],
+        "extensions": [
+            ".nii.gz"
+        ],
+        "roi_params": {
+            "suffix": null,
+            "slice_filter_roi": null
+        },
+        "contrast_params": {
+            "training_validation": [
+                "T2star"
+            ],
+            "testing": [
+                "T2star"
+            ],
+            "balance": {}
+        },
+        "slice_filter_params": {
+            "filter_empty_mask": false,
+            "filter_empty_input": true
+        },
+        "slice_axis": "axial",
+        "multichannel": false,
+        "soft_gt": false
+    },
+    "split_dataset": {
+        "fname_split": "Data_last_jedi.joblib",
+        "random_seed": 0,
+        "split_method": "participant_id",
+        "data_testing": {
+            "data_type": null,
+            "data_value": []
+        },
+        "balance": null,
+        "train_fraction": 0.75,
+        "test_fraction": 0.15
+    },
+    "training_parameters": {
+        "batch_size": 20,
+        "loss": {
+            "name": "DiceLoss"
+        },
+        "training_time": {
+            "num_epochs": 500,
+            "early_stopping_patience": 100,
+            "early_stopping_epsilon": 0.001
+        },
+        "scheduler": {
+            "initial_lr": 0.001,
+            "lr_scheduler": {
+                "name": "CosineAnnealingLR",
+                "base_lr": 1e-05,
+                "max_lr": 0.01
+            }
+        },
+        "balance_samples": {
+            "applied": false,
+            "type": "gt"
+        },
+        "mixup_alpha": null,
+        "transfer_learning": {
+            "retrain_model": null,
+            "retrain_fraction": 1.0,
+            "reset": true
+        }
+    },
+    "default_model": {
+        "name": "Unet",
+        "dropout_rate": 0.3,
+        "bn_momentum": 0.1,
+        "depth": 3,
+        "is_2d": true,
+        "final_activation": "sigmoid"
+    },
+    "uncertainty": {
+        "epistemic": false,
+        "aleatoric": false,
+        "n_it": 0
+    },
+    "postprocessing": {
+        "remove_noise": {
+            "thr": -1
+        },
+        "keep_largest": {},
+        "binarize_prediction": {
+            "thr": 0.5
+        },
+        "uncertainty": {
+            "thr": -1,
+            "suffix": "_unc-vox.nii.gz"
+        },
+        "fill_holes": {},
+        "remove_small": {
+            "unit": "vox",
+            "thr": 3
+        }
+    },
+    "evaluation_parameters": {
+        "target_size": {
+            "unit": "vox",
+            "thr": [
+                20,
+                100
+            ]
+        },
+        "overlap": {
+            "unit": "vox",
+            "thr": 3
+        }
+    },
+    "transformation": {
+        "Resample": {
+            "wspace": 0.17578125,
+            "hspace": 0.17578125,
+            "dspace": 1
+        },
+        "CenterCrop": {
+            "size": [
+                128,
+                128
+            ]
+        },
+        "RandomAffine": {
+            "degrees": 5,
+            "scale": [
+                0.2,
+                0.2
+            ],
+            "translate": [
+                0.05,
+                0.05
+            ],
+            "applied_to": [
+                "im",
+                "gt"
+            ],
+            "dataset_type": [
+                "training"
+            ]
+        },
+        "ElasticTransform": {
+            "alpha_range": [
+                28.0,
+                30.0
+            ],
+            "sigma_range": [
+                3.5,
+                4.5
+            ],
+            "p": 0.1,
+            "applied_to": [
+                "im",
+                "gt"
+            ],
+            "dataset_type": [
+                "training"
+            ]
+        },
+        "NumpyToTensor": {},
+        "NormalizeInstance": {
+            "applied_to": [
+                "im"
+            ]
+        }
+    },
+    "FiLMedUnet": {
+        "applied": false,
+        "metadata": "contrasts",
+        "film_layers": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    "Modified3DUNet": {
+        "applied": false,
+        "length_3D": [
+            128,
+            128,
+            16
+        ],
+        "stride_3D": [
+            128,
+            128,
+            16
+        ],
+        "attention": false,
+        "n_filters": 8
+    }
+}
