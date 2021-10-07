@@ -26,8 +26,8 @@
             "value": []
         },
         "target_suffix": [
-            "_SC-manual",
-            "_GM-manual"
+            "_7t_multiclass_sc",
+            "_7t_multiclass_gm"
         ],
         "extensions": [
             ".nii.gz"
