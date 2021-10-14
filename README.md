@@ -1,8 +1,9 @@
 # Spinal cord and gray matter multiclass segmentation at 7T - T2Star 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/77469192/135249501-83a5079c-057d-402d-9ddf-2d34c29ca453.gif" />
+<img src="https://user-images.githubusercontent.com/77469192/137283335-e527909c-9ec2-4790-9e66-246d492fbed9.gif" />
 </p>
+
 
 As spinal cord images acquired at 7T usually present with higher spatial resolution, new details, different contrasts and artifacts, the model was trained to refine white matter /gray matter segmentation.
 
@@ -30,4 +31,4 @@ sct_deepseg -i NIFTI_IMAGE -task seg_gm_sc_7t_t2star
 
 Please cite the following refence when using this model :
 
-+++work in progress+++
+N. J. L. Medina, C. Gros, J. Cohen-Adad, V. Callot, and A. L. Troter, “2D Multi-Class Model for Gray and White Matter Segmentation of the Cervical Spinal Cord at 7T,” ArXiv211006516 Cs Eess, Oct. 2021, Accessed: Oct. 14, 2021. [Online]. Available: http://arxiv.org/abs/2110.06516
