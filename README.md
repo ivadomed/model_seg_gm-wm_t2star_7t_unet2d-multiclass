@@ -31,4 +31,15 @@ sct_deepseg -i NIFTI_IMAGE -task seg_gm_sc_7t_t2star
 
 If you find this useful, please cite our work as follows:
 
+```bash
+@misc{medina20212d,
+      title={2D Multi-Class Model for Gray and White Matter Segmentation of the Cervical Spinal Cord at 7T}, 
+      author={Nilser J. Laines Medina and Charley Gros and Julien Cohen-Adad and Virginie Callot and Arnaud Le Troter},
+      year={2021},
+      eprint={2110.06516},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV}
+}
+```
+
 N. J. L. Medina, C. Gros, J. Cohen-Adad, V. Callot, and A. L. Troter, “2D Multi-Class Model for Gray and White Matter Segmentation of the Cervical Spinal Cord at 7T,” ArXiv211006516 Cs Eess, Oct. 2021, Accessed: Oct. 14, 2021. [Online]. Available: http://arxiv.org/abs/2110.06516
