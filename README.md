@@ -10,22 +10,20 @@ As spinal cord images acquired at 7T usually present with higher spatial resolut
 
 The model was trained in the Center for Magnetic Resonance in Biology and Medicine (CRMBM-CEMEREM, UMR 7339, CNRS, Aix-Marseille University - France, using [ivadomed](http://ivadomed.org/). It relies on high-resolution(0.175 x 0.175 mm2) 7T T2*-weighted images from [CRMBM-CEMEREM](https://crmbm.univ-amu.fr/topic/spinal-cord-imaging/) acquired on healthy and pathological subjects (multiple sclerosis, amyotrophic lateral sclerosis). 
 
-The convolutional neural network segments the spinal cord (SC) and the gray matter (GM) using 2D U-Net and this model was implemented in [SCT](https://spinalcordtoolbox.com/) as *seg_gm_sc_7t_t2star* tool.
+The convolutional neural network segments the spinal cord (SC) and the gray matter (GM) using 2D U-Net and this model was implemented in [SCT](https://spinalcordtoolbox.com/) as *gm_sc_7t_t2star* tool.
 
+## Dependencies
+[![SCT](https://img.shields.io/badge/SCT-7.0-green)](https://github.com/spinalcordtoolbox/spinalcordtoolbox/releases/tag/7.0)
 
-## Installation: 
+### Installation: 
 ```bash
-sct_deepseg -install-task seg_gm_sc_7t_t2star
+sct_deepseg gm_sc_7t_t2star -install
 ```
 
-## Launch segmentation:
+### Launch segmentation:
 ```bash
-sct_deepseg -i NIFTI_IMAGE -task seg_gm_sc_7t_t2star
+sct_deepseg gm_sc_7t_t2star -i NIFTI_IMAGE 
 ```
-
-
-
-
 
 ## Citation:
 
